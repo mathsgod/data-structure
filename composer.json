@@ -1,0 +1,17 @@
+{
+    "name": "mathsgod/data-structure",
+    "type": "library",
+    "description": "Data structure",
+    "authors": [
+        {
+            "name": "Raymond Chong",
+            "email": "mathsgod@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "R\\": "src"
+        }
+    },
+    "require": {}
+}
