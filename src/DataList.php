@@ -112,9 +112,9 @@ class DataList extends \ArrayIterator implements \JsonSerializable
 
     public function each(callable $callback)
     {
-        return array_walk($this,$callback);
-        foreach($this as $k=>$v){
-            $callback($v,$k);
+        return array_walk($this, $callback);
+        foreach ($this as $k => $v) {
+            $callback($v, $k);
         }
     }
 

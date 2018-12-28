@@ -9,8 +9,8 @@ class RSList extends DataList
     public function __construct($rs = null, $class = null)
     {
         $this->rs = $rs;
-        
-        if(!$rs){
+
+        if (!$rs) {
             parent::__construct([]);
             return;
         }
