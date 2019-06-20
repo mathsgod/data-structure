@@ -17,8 +17,9 @@ class RSList extends DataList
 
         if ($class && $rs) {
             $this->class = $class;
-
             $rs->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $class, []);
+        } elseif ($rs) {
+            $rs->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, \stdClass::class);
         }
 
         parent::__construct(iterator_to_array($rs));
