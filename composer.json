@@ -13,5 +13,8 @@
             "R\\": "src"
         }
     },
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
 }
