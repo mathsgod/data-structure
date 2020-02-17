@@ -4,7 +4,12 @@ namespace R;
 
 class DataList extends \ArrayIterator implements \JsonSerializable
 {
-    public function asArray()
+    public function toArray(): array
+    {
+        return $this->getArrayCopy();
+    }
+
+    public function asArray(): array
     {
         return $this->getArrayCopy();
     }
@@ -81,12 +86,12 @@ class DataList extends \ArrayIterator implements \JsonSerializable
 
     public function diff($array)
     {
-        return new DataList(array_diff($this->getArrayCopy(), (array )$array));
+        return new DataList(array_diff($this->getArrayCopy(), (array) $array));
     }
 
     public function udiff($array, $callback)
     {
-        return new DataList(array_udiff($this->getArrayCopy(), (array )$array, $callback));
+        return new DataList(array_udiff($this->getArrayCopy(), (array) $array, $callback));
     }
 
     public function substract($array, $callback)
@@ -117,5 +122,4 @@ class DataList extends \ArrayIterator implements \JsonSerializable
             $callback($v, $k);
         }
     }
-
 }
