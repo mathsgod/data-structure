@@ -24,9 +24,9 @@ class DataList extends \ArrayIterator implements \JsonSerializable
         return $this[0];
     }
 
-    public function top($num)
+    public function top(int $num)
     {
-        return new DataList(array_slice($this->getArrayCopy(), 0, $num));
+        return new self(array_slice($this->getArrayCopy(), 0, $num));
     }
 
     public function sum($f)
@@ -38,22 +38,22 @@ class DataList extends \ArrayIterator implements \JsonSerializable
     {
         $data = $this->getArrayCopy();
         shuffle($data);
-        return new DataList($data);
+        return new self($data);
     }
 
     public function reverse()
     {
-        return new DataList(array_reverse($this->getArrayCopy()));
+        return new self(array_reverse($this->getArrayCopy()));
     }
 
     public function slice($offset, $length = null)
     {
-        return new DataList(array_slice($this->getArrayCopy(), $offset, $length));
+        return new self(array_slice($this->getArrayCopy(), $offset, $length));
     }
 
     public function map($callback)
     {
-        return new DataList(array_map($callback, $this->getArrayCopy()));
+        return new self(array_map($callback, $this->getArrayCopy()));
     }
 
     public function page($page, $page_size)
@@ -65,12 +65,12 @@ class DataList extends \ArrayIterator implements \JsonSerializable
     {
         $data = $this->getArrayCopy();
         usort($data, $callback);
-        return new DataList($data);
+        return new self($data);
     }
 
     public function filter($callback)
     {
-        return new DataList(array_values(array_filter($this->getArrayCopy(), $callback)));
+        return new self(array_values(array_filter($this->getArrayCopy(), $callback)));
     }
 
     public function single()
@@ -86,12 +86,12 @@ class DataList extends \ArrayIterator implements \JsonSerializable
 
     public function diff($array)
     {
-        return new DataList(array_diff($this->getArrayCopy(), (array) $array));
+        return new self(array_diff($this->getArrayCopy(), (array) $array));
     }
 
     public function udiff($array, $callback)
     {
-        return new DataList(array_udiff($this->getArrayCopy(), (array) $array, $callback));
+        return new self(array_udiff($this->getArrayCopy(), (array) $array, $callback));
     }
 
     public function substract($array, $callback)
