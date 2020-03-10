@@ -4,12 +4,12 @@ namespace R;
 
 class DataList extends \ArrayIterator implements \JsonSerializable
 {
-    public function toArray(): array
+    public function toArray()
     {
         return $this->getArrayCopy();
     }
 
-    public function asArray(): array
+    public function asArray()
     {
         return $this->getArrayCopy();
     }
