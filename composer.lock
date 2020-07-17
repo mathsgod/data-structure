@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8982687a61240aa7081b25c621ff5843",
+    "content-hash": "0084d0cb89ef03cdef40ac1efaeb96d6",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -62,7 +62,7 @@
         },
         {
             "name": "mathsgod/php-util",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://mathsgod:d97ca44a017f09f662c0761828b0f66caf373415@github.com/mathsgod/php-util.git",
@@ -1578,9 +1578,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "mathsgod/php-util": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
