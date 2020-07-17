@@ -2,58 +2,34 @@
 
 namespace R;
 
-class DataList extends \ArrayIterator implements \JsonSerializable
+use PHP\Util\Lists;
+
+class DataList extends Lists
 {
-    public function toArray()
+     public function asArray()
     {
-        return $this->getArrayCopy();
+        return $this->all();
     }
 
-    public function asArray()
-    {
-        return $this->getArrayCopy();
-    }
-
-    public function jsonSerialize()
-    {
-        return $this->getArrayCopy();
-    }
     // -- RList
     public function first()
     {
-        return $this[0];
+        return $this->all()[0];
     }
 
     public function top(int $num)
     {
-        return new self(array_slice($this->getArrayCopy(), 0, $num));
-    }
-
-    public function sum($f)
-    {
-        return array_sum($this->map($f)->getArrayCopy());
-    }
-
-    public function shuffle()
-    {
-        $data = $this->getArrayCopy();
-        shuffle($data);
-        return new self($data);
+        return new self(array_slice($this->all(), 0, $num));
     }
 
     public function reverse()
     {
-        return new self(array_reverse($this->getArrayCopy()));
+        return new self(array_reverse($this->all()));
     }
 
     public function slice($offset, $length = null)
     {
-        return new self(array_slice($this->getArrayCopy(), $offset, $length));
-    }
-
-    public function map($callback)
-    {
-        return new self(array_map($callback, $this->getArrayCopy()));
+        return new self(array_slice($this->all(), $offset, $length));
     }
 
     public function page($page, $page_size)
@@ -63,14 +39,9 @@ class DataList extends \ArrayIterator implements \JsonSerializable
 
     public function usort($callback)
     {
-        $data = $this->getArrayCopy();
+        $data = $this->all();
         usort($data, $callback);
         return new self($data);
-    }
-
-    public function filter($callback)
-    {
-        return new self(array_values(array_filter($this->getArrayCopy(), $callback)));
     }
 
     public function single()
@@ -79,19 +50,11 @@ class DataList extends \ArrayIterator implements \JsonSerializable
         return array_shift(array_slice($first, 0, 1));
     }
 
-    public function implode($glue)
-    {
-        return implode($glue, $this->getArrayCopy());
-    }
 
-    public function diff($array)
-    {
-        return new self(array_diff($this->getArrayCopy(), (array) $array));
-    }
 
     public function udiff($array, $callback)
     {
-        return new self(array_udiff($this->getArrayCopy(), (array) $array, $callback));
+        return new self(array_udiff($this->all(), (array) $array, $callback));
     }
 
     public function substract($array, $callback)
@@ -105,14 +68,6 @@ class DataList extends \ArrayIterator implements \JsonSerializable
             return true;
         });
         return $data;
-    }
-
-    public function pop()
-    {
-        $last = $this->count() - 1;
-        $ret = $this->offsetGet($last);
-        $this->offsetUnset($last);
-        return $ret;
     }
 
     public function each(callable $callback)
