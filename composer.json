@@ -1,10 +1,4 @@
 {
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://raymond2.hostlink.com.hk/satis/web"
-        }
-    ],
     "name": "mathsgod/data-structure",
     "type": "library",
     "description": "Data structure",
