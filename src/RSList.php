@@ -1,4 +1,5 @@
 <?php
+
 namespace R;
 
 class RSList extends DataList
@@ -34,10 +35,19 @@ class RSList extends DataList
                 return $o["Field"];
             }, $json_fields);
 
+            $bool_fields = array_filter($attr, function ($o) {
+                return $o["Type"] == "tinyint(1)";
+            });
+            $bool_fields = array_column($bool_fields, "Field");
+
 
             foreach ($this as $obj) {
                 foreach ($json_fields as $field) {
                     $obj->$field = json_decode($obj->$field, true);
+                }
+
+                foreach ($bool_fields as $field) {
+                    $obj->$field = (bool)$obj->$field;
                 }
             }
         }
