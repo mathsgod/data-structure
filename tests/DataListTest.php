@@ -16,7 +16,7 @@ final class DataListTest extends TestCase
     public function test_toArray()
     {
         $set = new DataList([1, 2, 3]);
-        $this->assertArraySubset([1, 2, 3], $set);
+        $this->assertSame([1, 2, 3], $set->toArray());
     }
 
     public function test_first()
@@ -29,7 +29,7 @@ final class DataListTest extends TestCase
     {
         $list = new DataList([1, 2, 3]);
         $n = $list->top(2);
-        $this->assertArraySubset($n, [1, 2]);
+        $this->assertSame($n->toArray(), [1, 2]);
     }
 
     public function test_sum()
@@ -52,7 +52,7 @@ final class DataListTest extends TestCase
     {
         $list = new DataList([1, 2, 3]);
         $n = $list->reverse();
-        $this->assertArraySubset($n, [3, 2, 1]);
-        $this->assertArraySubset([3, 2, 1], $n);
+        $this->assertSame($n->toArray(), [3, 2, 1]);
+        $this->assertSame([3, 2, 1], $n->toArray());
     }
 }
