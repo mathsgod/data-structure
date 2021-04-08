@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09f840878c1d92b81b610bb0ee31b0e0",
+    "content-hash": "d5bf8dcbcc65c627d5f4ff2bee48367b",
     "packages": [
         {
             "name": "mathsgod/php-util",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mathsgod/php-util.git",
-                "reference": "36c39f2a23831ea430c54499c0fea978b8000edc"
+                "reference": "858c2cb38e4a8b4c9d029e09b2e6e53eecf39420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mathsgod/php-util/zipball/36c39f2a23831ea430c54499c0fea978b8000edc",
-                "reference": "36c39f2a23831ea430c54499c0fea978b8000edc",
+                "url": "https://api.github.com/repos/mathsgod/php-util/zipball/858c2cb38e4a8b4c9d029e09b2e6e53eecf39420",
+                "reference": "858c2cb38e4a8b4c9d029e09b2e6e53eecf39420",
                 "shasum": ""
             },
             "require-dev": {
@@ -45,9 +45,9 @@
             "description": "a simple php util for data structure",
             "support": {
                 "issues": "https://github.com/mathsgod/php-util/issues",
-                "source": "https://github.com/mathsgod/php-util/tree/1.1.3"
+                "source": "https://github.com/mathsgod/php-util/tree/1.1.4"
             },
-            "time": "2020-09-25T05:21:25+00:00"
+            "time": "2021-04-07T10:04:19+00:00"
         }
     ],
     "packages-dev": [
@@ -2148,7 +2148,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.3"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }
