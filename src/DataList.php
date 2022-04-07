@@ -6,7 +6,7 @@ use PHP\Util\Lists;
 
 class DataList extends Lists
 {
-     public function asArray()
+    public function asArray()
     {
         return $this->all();
     }
@@ -76,5 +76,10 @@ class DataList extends Lists
         foreach ($this as $k => $v) {
             $callback($v, $k);
         }
+    }
+
+    public function implode($glue)
+    {
+        return implode($glue, $this->asArray());
     }
 }
